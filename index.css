@@ -36,20 +36,19 @@ body {
   }
   
   #phrase {
-    margin-top: 20px;
-    font-size: 1.2em;
-    color: #444;
-    font-style: italic;
-    min-height: 50px;
-  }
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  font-style: italic;
+  min-height: 50px;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
 
-  #phrase {
-    font-size: 1.5rem;
-    color: #333;
-    margin-top: 20px;
-    opacity: 0;
-    transition: opacity 0.6s ease;
-  }
+#phrase.show {
+  opacity: 1;
+}
+
   
   #phrase.show {
     opacity: 1;
