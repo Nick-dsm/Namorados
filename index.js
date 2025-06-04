@@ -36,9 +36,9 @@ button.addEventListener("click", () => {
         fullPoem.textContent = fullPoemText;
         acronym.textContent = acronymText;
         poemContainer.style.display = "block";
-      }, 100); // delay pra suavizar
+      }, 1000); // delay pra suavizar
     }
   }
-})
+});
   
   
