@@ -10,7 +10,7 @@ const phrases = [
 ];
 
 // script que imprime poema
-const fullPoemText = phrases.join("/n");
+const fullPoemText = phrases.join("\n");
 const acronymText = "EU TE AMO";  // frase final
 
 // elementos 
@@ -24,6 +24,8 @@ const acronym = document.getElementById("acronym");
 let currentIndex = 0;  
 
 button.addEventListener("click", () => {
+  phrase.style.display = "block";
+
   if(currentIndex < phrases.length){
     phrase.textContent = phrases[currentIndex];
     phrase.classList.add("show");
@@ -33,7 +35,7 @@ button.addEventListener("click", () => {
     if(currentIndex === phrases.length){
       setTimeout(() => {
         phrase.style.display = "none";
-        fullPoem.textContent = fullPoemText;
+        fullPoem.innerText = fullPoemText;
         acronym.textContent = acronymText;
         poemContainer.style.display = "block";
       }, 1000); // delay pra suavizar
