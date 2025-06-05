@@ -9,9 +9,8 @@ const phrases = [
   'O homem nasce puro, mas tu corrompestes-me, sem retorno. Arcará com as consequências destinadas ao ser que entrara num mundo de sonho?'
 ];
 
-// script que imprime poema
-const fullPoemText = phrases.join("\n");
 const acronymText = "EU TE AMO";  // frase final
+const fullPoemText = phrases.join("\n");
 
 // elementos 
 const button = document.getElementById("heart-button");
@@ -20,15 +19,17 @@ const poemContainer = document.getElementById("poem-container");
 const fullPoem = document.getElementById("full-poem");
 const acronym = document.getElementById("acronym");
 
-// variável base
+// variável de controle
 let currentIndex = 0;  
+let poemRevealed = false;
 
 // script dos versos
 button.addEventListener("click", () => {
-  phrase.style.display = "block";
+  
 
   // ainda há versos
   if(currentIndex < phrases.length){
+    phrase.style.display = "block";
     phrase.textContent = phrases[currentIndex];
     phrase.classList.add("show");
     currentIndex++;
@@ -39,11 +40,13 @@ button.addEventListener("click", () => {
     }
 
     // revela poema completo
-  } else if(currentIndex === phrases.length){
-    phrase.style.display = "none";
+  } else if(!poemRevealed){
+    phrase.style.display = "none"; // esconde última linha
+    poemContainer.style.display = "block";
     fullPoem.innerText = fullPoemText;
     acronym.textContent = acronymText;
-    poemContainer.style.display = "block";
+    poemRevealed = true;
+    
 
     // tchau botão (* ocultar)
     button.disabled = true;
