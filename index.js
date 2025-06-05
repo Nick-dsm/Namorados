@@ -24,9 +24,10 @@ button.addEventListener("click", () => {
   phrase.style.display = "block";
 
   if (currentIndex < phrases.length - 1) {
-    // mostra as frases exceto a última
     phrase.textContent = phrases[currentIndex];
     phrase.classList.remove("show");
+    void phrase.offsetWidth;
+    phrase.classList.add("show");
     currentIndex++;
 
     if (currentIndex === phrases.length - 1) {
@@ -34,22 +35,23 @@ button.addEventListener("click", () => {
     }
 
   } else if (currentIndex === phrases.length - 1) {
-    // mostra a última frase
     phrase.textContent = phrases[currentIndex];
     phrase.classList.remove("show");
+    void phrase.offsetWidth;
+    phrase.classList.add("show");
     currentIndex++;
     button.textContent = "💚";
-    button.classList.add("small-button"); // reduz tamanho
+    button.classList.add("small-button");
 
   } else if (!poemRevealed) {
-    // agora sim, mostra o poema completo
     phrase.style.display = "none";
     poemContainer.style.display = "block";
+    poemContainer.classList.add("show"); // se usar animação
     fullPoem.innerText = fullPoemText;
     acronym.textContent = acronymText;
     poemRevealed = true;
 
     button.disabled = true;
-    button.style.opacity = "0";
+    button.classList.add("fade-out");
   }
 });

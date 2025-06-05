@@ -1,51 +1,54 @@
+/* Estilo base */
 body {
-    background: linear-gradient(120deg, #ffe0f0, #ffeaf5);
-    font-family: 'Segoe UI', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-  }
-  
-  .container {
-    text-align: center;
-    padding: 20px;
-    max-width: 400px;
-    background: #fff0f8;
-    border-radius: 20px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
-    color: #d63384;
-  }
-  
-  button {
-    font-size: 2.5em;
-    background: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s, opacity 0.8s ease;
-  }
+  background: linear-gradient(120deg, #ffe0f0, #ffeaf5);
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 10px;
+}
 
-  button:small-button{
-    font-size: 1.2sem;
-    padding: 5px 10px;
-  }
-  
-  button:hover:not(.fade-out) {
-    transform: scale(1.2);
-  }
+.container {
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  background: #fff0f8;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
-  button.fade-out{
-    opacity: 0;
-    pointer-events: none;
-  }
-  
-  #phrase {
+h1 {
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #d63384;
+}
+
+button {
+  font-size: 2.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.8s ease;
+}
+
+button.small-button {
+  font-size: 1.2em;
+  padding: 5px 10px;
+}
+
+button:hover:not(.fade-out) {
+  transform: scale(1.2);
+}
+
+button.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#phrase {
   margin-top: 20px;
   font-size: 1.5rem;
   color: #333;
@@ -59,3 +62,79 @@ body {
   opacity: 1;
 }
 
+#poem-container {
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: none;
+  margin-top: 20px;
+}
+
+#poem-container.show {
+  opacity: 1;
+}
+
+#full-poem {
+  white-space: pre-line;
+}
+
+#acronym {
+  color: #d63384;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+/* Responsividade para telas pequenas */
+@media screen and (max-width: 480px) {
+  .container {
+    padding: 15px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 1.3em;
+  }
+
+  #phrase {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 2em;
+  }
+
+  button.small-button {
+    font-size: 1em;
+  }
+
+  #acronym {
+    font-size: 1em;
+  }
+}
+
+/* Responsividade para telas maiores */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 600px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  #phrase {
+    font-size: 1.6rem;
+  }
+
+  button {
+    font-size: 3em;
+  }
+
+  button.small-button {
+    font-size: 1.4em;
+  }
+
+  #acronym {
+    font-size: 1.4em;
+  }
+}
