@@ -1,7 +1,6 @@
-// array com o poema em frases
 const phrases = [
   'Em um tempo, foi-se dito que o amor reside dentro de mim',
-  'Uma incompreenssão, mas recebida pelo singelo jardim',
+  'Uma incompreensão, mas recebida pelo singelo jardim',
   'Tão oculto, guarda toda letra que me direcionou',
   'Em grande sentimento, vindo de alguém que pela primeira vez verdadeiramente amou',
   'Adentro do profundo, as pétalas dançam conforme o vento do amor',
@@ -9,49 +8,48 @@ const phrases = [
   'O homem nasce puro, mas tu corrompestes-me, sem retorno. Arcará com as consequências destinadas ao ser que entrara num mundo de sonho?'
 ];
 
-const acronymText = "EU TE AMO";  // frase final
 const fullPoemText = phrases.join("\n");
+const acronymText = "EU TE AMO";
 
-// elementos 
-const button = document.getElementById("heart-button");
+const button = document.getElementById("play-button");
 const phrase = document.getElementById("phrase");
 const poemContainer = document.getElementById("poem-container");
 const fullPoem = document.getElementById("full-poem");
 const acronym = document.getElementById("acronym");
 
-// variável de controle
-let currentIndex = 0;  
-let poemRevealed = false;
+let currentIndex = 0;
+let poemRevealed = false; // ← flag de controle
 
-// script dos versos
 button.addEventListener("click", () => {
-  
+  phrase.style.display = "block";
 
-  // ainda há versos
-  if(currentIndex < phrases.length){
-    phrase.style.display = "block";
+  if (currentIndex < phrases.length - 1) {
+    // mostra as frases exceto a última
     phrase.textContent = phrases[currentIndex];
-    phrase.classList.add("show");
+    phrase.classList.remove("show");
     currentIndex++;
 
-    // última linha, fim
-    if(currentIndex === phrases.length){
-      button.textContent = "Mais...";
+    if (currentIndex === phrases.length - 1) {
+      button.textContent = "...";
     }
 
-    // revela poema completo
-  } else if(!poemRevealed){
-    phrase.style.display = "none"; // esconde última linha
+  } else if (currentIndex === phrases.length - 1) {
+    // mostra a última frase
+    phrase.textContent = phrases[currentIndex];
+    phrase.classList.remove("show");
+    currentIndex++;
+    button.textContent = "Mais...";
+    button.classList.add("small-button"); // reduz tamanho
+
+  } else if (!poemRevealed) {
+    // agora sim, mostra o poema completo
+    phrase.style.display = "none";
     poemContainer.style.display = "block";
     fullPoem.innerText = fullPoemText;
     acronym.textContent = acronymText;
     poemRevealed = true;
-    
 
-    // tchau botão (* ocultar)
     button.disabled = true;
-    button.style.opacity = "0.5"; // * ocultar => button.style.display = "none";
+    button.style.opacity = "0.5";
   }
 });
-  
-  

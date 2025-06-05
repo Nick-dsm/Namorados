@@ -28,11 +28,21 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.8s ease;
+  }
+
+  button:small-button{
+    font-size: 1.2sem;
+    padding: 5px 10px;
   }
   
-  button:hover {
+  button:hover:not(.fade-out) {
     transform: scale(1.2);
+  }
+
+  button.fade-out{
+    opacity: 0;
+    pointer-events: none;
   }
   
   #phrase {
