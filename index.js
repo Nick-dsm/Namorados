@@ -23,23 +23,31 @@ const acronym = document.getElementById("acronym");
 // variável base
 let currentIndex = 0;  
 
+// script dos versos
 button.addEventListener("click", () => {
   phrase.style.display = "block";
 
+  // ainda há versos
   if(currentIndex < phrases.length){
     phrase.textContent = phrases[currentIndex];
     phrase.classList.add("show");
     currentIndex++;
 
-    // ultima frase, segue:
+    // última linha, fim
     if(currentIndex === phrases.length){
-      setTimeout(() => {
-        phrase.style.display = "none";
-        fullPoem.innerText = fullPoemText;
-        acronym.textContent = acronymText;
-        poemContainer.style.display = "block";
-      }, 1000); // delay pra suavizar
+      button.textContent = "Mais...";
     }
+
+    // revela poema completo
+  } else if(currentIndex === phrases.length){
+    phrase.style.display = "none";
+    fullPoem.innerText = fullPoemText;
+    acronym.textContent = acronymText;
+    poemContainer.style.display = "block";
+
+    // tchau botão (* ocultar)
+    button.disabled = true;
+    button.style.opacity = "0.5"; // * ocultar => button.style.display = "none";
   }
 });
   
