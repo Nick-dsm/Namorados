@@ -9,9 +9,9 @@ const phrases = [
 ];
 
 const fullPoemText = phrases.join("\n");
-const acronymText = "EU TE AMO";
+const acronymText = "EU TE AMO💚";
 
-const button = document.getElementById("play-button");
+const button = document.getElementById("heart-button");
 const phrase = document.getElementById("phrase");
 const poemContainer = document.getElementById("poem-container");
 const fullPoem = document.getElementById("full-poem");
@@ -30,7 +30,7 @@ button.addEventListener("click", () => {
     currentIndex++;
 
     if (currentIndex === phrases.length - 1) {
-      button.textContent = "...";
+      button.textContent = "💚";
     }
 
   } else if (currentIndex === phrases.length - 1) {
@@ -38,7 +38,7 @@ button.addEventListener("click", () => {
     phrase.textContent = phrases[currentIndex];
     phrase.classList.remove("show");
     currentIndex++;
-    button.textContent = "Mais...";
+    button.textContent = "💚";
     button.classList.add("small-button"); // reduz tamanho
 
   } else if (!poemRevealed) {
@@ -50,6 +50,6 @@ button.addEventListener("click", () => {
     poemRevealed = true;
 
     button.disabled = true;
-    button.style.opacity = "0.5";
+    button.style.opacity = "0";
   }
 });
